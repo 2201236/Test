@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>一覧表示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            margin-left: 300px;
+            margin-right:300px;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 90%; /* Slightly narrower width */
+            border-collapse: collapse;
+            margin: 0 auto;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: black; /* Light blue background */
+            color: white;
+            border: 1px solid #ddd;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #e0f7fa; /* Light blue for even rows */
+        }
+
+        tr:hover {
+            background-color: #b2ebf2; /* Light blue for hover effect */
+        }
+
+        @media (max-width: 600px) {
+            table, th, td {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>楽曲一覧表示</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>曲名</th>
+                <th>歌手名</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="name : ${list}">
+                <td th:text="${name.song_id}"></td>
+                <td th:text="${name.song_name}"></td>
+                <td th:text="${name.singer}"></td>
+            </tr>
+        </tbody>
+    </table>
+     <img src="/back.png" alt="Image" onclick="goBack()" style="width:100px" />
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+</body>
+</html>

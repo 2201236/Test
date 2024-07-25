@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Center content in a column */
+        height: 100vh; /* Ensure the body takes up the full viewport height */
+        margin: 0;
+        padding: 20px;
+        text-align: center; /* Center text horizontally */
+    }
+    
+    #loadImg {
+        max-width: 100%; /* Ensure the image doesn't exceed its container */
+        margin-top: 20px; /* Add space between text and image */
+    }
+</style>
+<script>
+    setTimeout(function() {
+        document.getElementById('redirectForm').submit();
+    }, 5000); // 5000 milliseconds = 5 seconds
+</script>
+</head>
+<body>
+    <div>
+        <p>更新できました<br>ホーム画面に戻ります</p>
+    </div>
+    
+    <!-- Form with hidden style to avoid showing it visually -->
+    <form id="redirectForm" th:action="@{/index}" method="GET" style="display: none;">
+        <input type="submit" value="戻る">
+    </form>
+    
+    <!-- Image centered in the middle of the page -->
+    <img id="loadImg" src="/load.gif" alt="Example Image">
+</body>
+</html>

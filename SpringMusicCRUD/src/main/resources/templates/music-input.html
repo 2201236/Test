@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>楽曲登録フォーム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            margin-left: 300px;
+            margin-right:300px;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            background-color: #00bcd4; /* Light blue color */
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #008ba3; /* Darker shade of blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <form th:action="@{/insert}" method="post">
+        <h2 style="text-align: center;">楽曲登録フォーム</h2>
+        <label for="song_name">曲名:</label>
+        <input type="text" id="song_name" name="song_name" required>
+        <br><br>
+        <label for="singer">歌手名:</label>
+        <input type="text" id="singer" name="singer" required>
+        <br><br>
+        <input type="submit" value="登録">
+    </form>
+     <img src="/back.png" alt="Image" onclick="goBack()" style="width:100px" />
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+</body>
+</html>

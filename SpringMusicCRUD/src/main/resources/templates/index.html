@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>楽曲操作システム</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: #ADD8E6; /* Light blue */
+            color: #333;
+            border: 2px solid #0000FF; /* Blue border */
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn img {
+            display: block;
+            margin: 10px auto;
+            height: 100px;
+        }
+
+        .btn:hover {
+            background-color: #87CEFA; /* Lighter blue on hover */
+            transform: scale(1.05);
+        }
+
+        .btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+        }
+
+        .full-width {
+            grid-column: span 3;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+
+            .btn img {
+                height: 80px;
+            }
+
+            .full-width {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>楽曲操作システム</h2>
+        <form th:action="@{/menu}" method="POST">
+            <button type="submit" name="select" value="一覧表示" class="btn full-width">
+                一覧表示<br />
+                <img src="/li.png" alt="Example Image">
+            </button>
+            <button type="submit" name="insert" value="登録" class="btn">
+                登録<br />
+                <img src="/in.gif" alt="Example Image">
+            </button>
+            <button type="submit" name="update" value="更新" class="btn">
+                更新<br />
+                <img src="/up.gif" alt="Example Image">
+            </button>
+            <button type="submit" name="delete" value="削除" class="btn">
+                削除<br />
+                <img src="/de.gif" alt="Example Image">
+            </button>
+        </form>
+    </div>
+</body>
+</html>
